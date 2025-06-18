@@ -19,7 +19,7 @@ class ContactController extends Controller
         ->get();
 
     return view('contacts.index', compact('contacts', 'search'));
-
+    }
     public function create() {
         return view('contacts.create');
     }
