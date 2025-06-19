@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class ContactController extends Controller
 {
@@ -25,7 +27,11 @@ class ContactController extends Controller
     }
 
     public function store(Request $request) {
-        Contact::create($request->only(['name', 'email', 'phone']));
+        $data = $request->only(['name', 'email', 'phone']);
+        if ($request->hasFile('photo')) {
+        $data['photo'] = $request->file('photo')->store('photos', 'public');
+    }
+Contact::create($data);
         return redirect()->route('contacts.index');
     }
 
@@ -36,7 +42,16 @@ class ContactController extends Controller
 
     public function update(Request $request, $id) {
         $contact = Contact::findOrFail($id);
-        $contact->update($request->only(['name', 'email', 'phone']));
+        $data = $request->only(['name', 'email', 'phone']);
+
+    if ($request->hasFile('photo')) {
+        if ($contact->photo && Storage::disk('public')->exists($contact->photo)) {
+            Storage::disk('public')->delete($contact->photo);
+        }
+        $data['photo'] = $request->file('photo')->store('photos', 'public');
+    }
+
+    $contact->update($data);
         return redirect()->route('contacts.index');
     }
 
