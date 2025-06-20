@@ -55,7 +55,9 @@
     <div class="welcome-section text-center">
         <h2>WELCOME</h2>
         <p>Create Your Account</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>By: Arvin R. Faburada</p>
+        <p>Neil Rey R. Albopera</p>
+        <p>Patrick B. Corda</p>
     </div>
 
     <div class="form-section">
