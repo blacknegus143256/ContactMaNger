@@ -1,16 +1,5 @@
 @extends('layout')
- <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
-        <a class="navbar-brand" href="{{ route('contacts.index') }}">Contact Manager</a>
-
-        <div class="ms-auto">
-            @auth
-                <form action="{{ route('logout') }}" method="POST" class="d-inline">
-                    @csrf
-                    <button class="btn btn-outline-danger btn-sm">Logout</button>
-                </form>
-            @endauth
-        </div>
-    </nav>
+ 
 @section('content')
 <h2 class="mb-3">Contacts</h2>
 
@@ -19,7 +8,9 @@
     <button type="submit" class="btn btn-primary">Search</button>
 </form>
 
+<div class="d-flex justify-content-end mb-3">
 <a href="{{ route('contacts.create') }}" class="btn btn-success mb-4">Add Contact</a>
+</div>
 
 <div class="row">
     @forelse($contacts as $contact)
