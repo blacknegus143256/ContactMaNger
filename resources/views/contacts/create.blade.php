@@ -1,6 +1,7 @@
 @extends('dashboard-layout')
 
 @section('content')
+<a href="{{ url()->previous() }}" class="btn btn-secondary mb-3">← Back</a>
     <h2>Add Contact</h2>
     <form method="POST" action="{{ route('contacts.store') }}" enctype="multipart/form-data">
         @csrf

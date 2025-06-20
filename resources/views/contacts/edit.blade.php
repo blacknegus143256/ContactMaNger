@@ -1,6 +1,7 @@
 @extends('dashboard-layout')
 
 @section('content')
+<a href="{{ url()->previous() }}" class="btn btn-secondary mb-3">← Back</a>
     <h2 class="mb-4 text-center">Edit Contact</h2>
 
     <form method="POST" action="{{ route('contacts.update', $contact->id) }}"enctype="multipart/form-data">
