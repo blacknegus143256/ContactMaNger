@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('dashboard-layout')
  
 @section('content')
 <h2 class="mb-3">Contacts</h2>

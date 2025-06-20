@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('dashboard-layout')
 
 @section('content')
     <h2>Add Contact</h2>
